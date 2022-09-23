@@ -9,6 +9,7 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
     [SerializeField] private int _objectCloneCount;
     //[SerializeField] private float _objectDistance;
 
+    //Ateþ aldýðýnda yok olup düþüðün çýkmasýný saðlaan fonksiyon
     public void MergeExtraction(GameObject objectShot, GameObject objectMerge, int OPMergeCount)
     {
         ObjectPool.Instance.AddObject(_OPShotCount, objectShot);
@@ -20,12 +21,14 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         }
     }
 
+    //en düþük seviyede ölüm sonu yok oluþ
     public void LastMergeExtraction(GameObject objectShot, GameObject objectMerge)
     {
         ObjectPool.Instance.AddObject(_OPShotCount, objectShot);
         ObjectPool.Instance.AddObject(OPLastDownCount, objectMerge);
     }
 
+    //rivallerin birleþip bir üst levela yükselmesini saðlaan fonksiyon
     public void MergeAdd(GameObject obj1, GameObject obj2, int OPCount)
     {
         ObjectPool.Instance.AddObject(OPCount, obj1);
@@ -34,6 +37,9 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         GameObject obj = ObjectPool.Instance.GetPooledObject(OPCount + 1);
 
         obj.transform.position = obj1.transform.position;
+
+        obj.GetComponent<WarriorStat>().level = OPCount + 1;
+        obj.GetComponent<WarriorStat>().SetStat();
     }
 
 

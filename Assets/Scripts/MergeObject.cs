@@ -9,6 +9,7 @@ public class MergeObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Warriorun neye deðidiðini kontrol edip ona uygun fnksiyona yönlendiriyor
         if (collision.gameObject.CompareTag("Shot") && !inChange)
         {
             if (OPCount == MergeMechanic.Instance.OPLastDownCount)

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6226532612195346215}
   - component: {fileID: 1532199722090913664}
   - component: {fileID: 4947802887852913892}
+  - component: {fileID: -1673494340649662881}
   m_Layer: 0
   m_Name: 2
   m_TagString: Rival
@@ -56,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OPCount: 1
+  inChange: 0
 --- !u!23 &6226532612195346215
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -126,3 +128,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-1673494340649662881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2553716301797885416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab32303b7d06f94dbcc12accccab391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
