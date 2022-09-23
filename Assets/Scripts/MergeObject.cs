@@ -24,7 +24,17 @@ public class MergeObject : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Rival") && !inChange)
         {
-            if (collision.gameObject.GetComponent<MergeObject>().OPCount == OPCount && OPCount != MergeMechanic.Instance.OPLastUpCount)
+            MergeObject mergeObject = collision.gameObject.GetComponent<MergeObject>();
+            if (!mergeObject.inChange)
+            {
+                mergeObject.inChange = true;
+            }
+            else
+            {
+                inChange = true;
+            }
+
+            if (mergeObject.OPCount == OPCount && OPCount != MergeMechanic.Instance.OPLastUpCount)
             {
                 inChange = true;
                 MergeMechanic.Instance.MergeAdd(collision.gameObject, this.gameObject, OPCount);
