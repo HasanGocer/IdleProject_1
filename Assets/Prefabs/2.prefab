@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4947802887852913892}
   m_Layer: 0
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Rival
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdc1fe292994134eb5db308e8679a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _OPCount: 1
+  OPCount: 1
 --- !u!23 &6226532612195346215
 MeshRenderer:
   m_ObjectHideFlags: 0

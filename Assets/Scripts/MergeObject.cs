@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class MergeObject : MonoBehaviour
 {
-    [SerializeField] private int _OPCount;
+    public int OPCount;
+    public bool inChange;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Shot"))
+        if (collision.gameObject.CompareTag("Shot") && !inChange)
         {
-            if (_OPCount == MergeMechanic.Instance.OPLastCount)
+            if (OPCount == MergeMechanic.Instance.OPLastDownCount)
             {
-                MergeMechanic.Instance.LastMerge(collision.gameObject, this.gameObject);
+                inChange = true;
+                MergeMechanic.Instance.LastMergeExtraction(collision.gameObject, this.gameObject);
             }
             else
             {
-                MergeMechanic.Instance.Merge(collision.gameObject, this.gameObject, _OPCount);
+                inChange = true;
+                MergeMechanic.Instance.MergeExtraction(collision.gameObject, this.gameObject, OPCount);
+            }
+        }
+        else if (collision.gameObject.CompareTag("Rival") && !inChange)
+        {
+            if (collision.gameObject.GetComponent<MergeObject>().OPCount == OPCount && OPCount != MergeMechanic.Instance.OPLastUpCount)
+            {
+                inChange = true;
+                MergeMechanic.Instance.MergeAdd(collision.gameObject, this.gameObject, OPCount);
             }
         }
     }
