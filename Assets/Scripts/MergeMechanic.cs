@@ -21,8 +21,9 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
 
     }
 
-    public void LastMerge(GameObject other)
+    public void LastMerge(GameObject objectShot, GameObject objectMerge)
     {
-        ObjectPool.Instance.AddObject(OPLastCount, other);
+        ObjectPool.Instance.AddObject(_OPShotCount, objectShot);
+        ObjectPool.Instance.AddObject(OPLastCount, objectMerge);
     }
 }

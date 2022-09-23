@@ -12,7 +12,7 @@ public class MergeObject : MonoBehaviour
         {
             if (_OPCount == MergeMechanic.Instance.OPLastCount)
             {
-                MergeMechanic.Instance.LastMerge(collision.gameObject);
+                MergeMechanic.Instance.LastMerge(collision.gameObject, this.gameObject);
             }
             else
             {
