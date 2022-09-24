@@ -37,9 +37,6 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         GameObject obj = ObjectPool.Instance.GetPooledObject(OPCount + 1);
 
         obj.transform.position = obj1.transform.position;
-
-        obj.GetComponent<WarriorStat>().level = OPCount + 1;
-        obj.GetComponent<WarriorStat>().SetStat();
     }
 
 

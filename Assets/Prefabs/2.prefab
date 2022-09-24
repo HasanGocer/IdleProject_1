@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1532199722090913664}
   - component: {fileID: 4947802887852913892}
   - component: {fileID: -1673494340649662881}
+  - component: {fileID: 7672919232835994801}
   m_Layer: 0
   m_Name: 2
   m_TagString: Rival
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2553716301797885416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,3 +141,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab32303b7d06f94dbcc12accccab391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7672919232835994801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2553716301797885416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8454c132aa544034f8703ca6f47be451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthCount: 1
+  speed: 4
+  level: 1
