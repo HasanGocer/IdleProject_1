@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CastelStat : MonoSingleton<CastelStat>
 {
-    public float archerArrowCountDown, archerArrowCountdownFactor;
-    public int maxHealth, health, healthFactor;
-    public int rivalWarriorCount, rivalWarriorCountFactor;
+    public float archerArrowCountDown;
+    public int maxHealth, health;
+    public int rivalWarriorCount;
 
     public void SetCastelStat()
     {
-        archerArrowCountDown = archerArrowCountdownFactor * GameManager.Instance.level;
+        archerArrowCountDown = CastleStatManager.Instance.archerArrowCountdownFactor * GameManager.Instance.level;
         health = maxHealth;
-        health = healthFactor * GameManager.Instance.level;
-        rivalWarriorCount = rivalWarriorCountFactor * GameManager.Instance.level;
+        health = CastleStatManager.Instance.healthFactor * GameManager.Instance.level;
+        rivalWarriorCount = CastleStatManager.Instance.rivalWarriorCountFactor * GameManager.Instance.level;
     }
 }

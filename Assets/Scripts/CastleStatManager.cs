@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastleStatManager : MonoBehaviour
+public class CastleStatManager : MonoSingleton<CastleStatManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float archerArrowCountdownFactor;
+    public int healthFactor;
+    public int rivalWarriorCountFactor;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
