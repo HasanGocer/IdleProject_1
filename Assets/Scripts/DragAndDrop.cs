@@ -8,6 +8,13 @@ public class DragAndDrop : MonoBehaviour
 
     Vector3 pos;
 
+    private void Update()
+    {
+        //began
+        //moved
+        //ended
+    }
+
     private void OnMouseDown()
     {
         distence = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);

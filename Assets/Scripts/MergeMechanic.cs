@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MergeMechanic : MonoSingleton<MergeMechanic>
 {
+    //birleþtirme ve ayýrma mekaniðinin tüm fonksiyonlarýnýn tutulduðu yerdir
+
     public int OPLastUpCount, OPLastDownCount;
     [SerializeField] private int _OPShotCount;
     [SerializeField] private int _objectCloneCount;

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class MergeObject : MonoBehaviour
 {
+    //nesneye deðen þeye göre bir merge mechanic çalýþtýtýr
+
     public int OPCount;
     public bool inChange;
 
     private void OnCollisionEnter(Collision collision)
     {
         //Warriorun neye deðidiðini kontrol edip ona uygun fnksiyona yönlendiriyor
-        if (collision.gameObject.CompareTag("Shot"))
+        if (collision.gameObject.CompareTag("Rival"))
         {
             if (OPCount == MergeMechanic.Instance.OPLastDownCount)
             {
@@ -23,7 +25,7 @@ public class MergeObject : MonoBehaviour
                 MergeMechanic.Instance.MergeExtraction(collision.gameObject, this.gameObject, OPCount);
             }
         }
-        else if (collision.gameObject.CompareTag("Rival") && !inChange)
+        else if (collision.gameObject.CompareTag("Warrior") && !inChange)
         {
             MergeObject mergeObject = collision.gameObject.GetComponent<MergeObject>();
             if (!mergeObject.inChange)
@@ -40,6 +42,14 @@ public class MergeObject : MonoBehaviour
                 inChange = true;
                 MergeMechanic.Instance.MergeAdd(collision.gameObject, this.gameObject, OPCount);
             }
+        }
+        else if (collision.gameObject.CompareTag("Castle"))
+        {
+
+        }
+        else if (collision.gameObject.CompareTag("Multiplication"))
+        {
+
         }
     }
 }

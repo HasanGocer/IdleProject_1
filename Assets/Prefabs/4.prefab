@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 2634909890680302960}
   - component: {fileID: 1949651654137761548}
   - component: {fileID: 5781820469192772536}
-  - component: {fileID: -1893792672770451994}
   - component: {fileID: 6597450399894105635}
+  - component: {fileID: 4426725205297449758}
   m_Layer: 0
   m_Name: 4
-  m_TagString: Rival
+  m_TagString: Warrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,18 +129,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1893792672770451994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355573705272142138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab32303b7d06f94dbcc12accccab391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6597450399894105635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +144,15 @@ MonoBehaviour:
   healthCount: 2
   speed: 5
   level: 2
+--- !u!114 &4426725205297449758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355573705272142138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf958e9e34e7c440b8a3324aaed04b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Warriorİnstantiate : MonoSingleton<Warriorİnstantiate>
 {
+    //warrior spawn eden fonksiyon
     [SerializeField] private GameObject _rivalCastel;
     [SerializeField] private int _OPWarriorCount;
-    [SerializeField] private int _setWarriorLevel;
 
     //warriorun doğacağı yeri vermemiz yetiyor oraya warrior spawnlıyor;
     public void WarriorSpawn(GameObject pos)
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject(_OPWarriorCount);
 
-        obj.GetComponent<WarriorStat>().level = _setWarriorLevel;
-        obj.GetComponent<WarriorStat>().SetStat();
-
-        obj.transform.position = pos.transform.position;
+        obj.transform.position = new Vector3(pos.transform.position.x, pos.transform.position.y + 1, pos.transform.position.z);
         obj.transform.LookAt(_rivalCastel.transform);
+        WarriorStatManager.Instance.currentWarriorCount++;
+
+        if (WarriorStatManager.Instance.currentWarriorCount == WarriorStatManager.Instance.warriorCount)
+        {
+            GameManager.Instance.inPlacement = false;
+            GameManager.Instance.inMerge = true;
+        }
     }
 
 }

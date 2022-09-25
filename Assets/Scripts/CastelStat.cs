@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CastelStat : MonoSingleton<CastelStat>
 {
+    //kalenin can deðerini belirliyor ve içindeki fonksiyon oyun sonunda yeni deðreleri belirliyor
     public float archerArrowCountDown;
     public int maxHealth, health;
     public int rivalWarriorCount;

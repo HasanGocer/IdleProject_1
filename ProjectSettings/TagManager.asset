@@ -7,6 +7,9 @@ TagManager:
   - Missile
   - Shot
   - Rival
+  - Warrior
+  - Castle
+  - Multiplication
   layers:
   - Default
   - TransparentFX
