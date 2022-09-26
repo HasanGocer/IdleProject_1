@@ -38,6 +38,7 @@ public class TouchControl : MonoBehaviour
                 case TouchPhase.Ended:
                     GameManager.Instance.inPlacement = false;
                     GameManager.Instance.inMerge = true;
+                    this.GetComponent<WarriorWalk>().Walk();
                     Debug.Log("sadasda");
                     if (!GetComponent<MergeObject>().inChange)
                     {

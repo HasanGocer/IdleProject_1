@@ -9,6 +9,10 @@ public class CastelStat : MonoSingleton<CastelStat>
     public int maxHealth, health;
     public int rivalWarriorCount;
 
+    private void Start()
+    {
+        health = maxHealth;
+    }
     public void SetCastelStat()
     {
         archerArrowCountDown = CastleStatManager.Instance.archerArrowCountdownFactor * GameManager.Instance.level;
