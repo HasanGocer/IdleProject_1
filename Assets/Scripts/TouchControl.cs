@@ -14,7 +14,10 @@ public class TouchControl : MonoBehaviour
     {
         touchobject = true;
     }
-
+    private void Start()
+    {
+        GameManager.Instance.inPlacement = true;
+    }
     void Update()
     {
         if (Input.touchCount > 0 && touchobject)

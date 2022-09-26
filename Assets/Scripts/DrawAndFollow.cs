@@ -73,6 +73,6 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
         }
         yield return new WaitForSeconds(waypointCooldawn);
         draw = true;
-       
+
     }
 }

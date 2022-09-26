@@ -8,7 +8,7 @@ public class Warriorİnstantiate : MonoSingleton<Warriorİnstantiate>
     [SerializeField] private GameObject _rivalCastel;
     [SerializeField] private int _OPWarriorCount;
     public List<GameObject> WarriorObject = new List<GameObject>();
-    //bool list
+    public List<bool> WarriorBool = new List<bool>();
 
     //warriorun doğacağı yeri vermemiz yetiyor oraya warrior spawnlıyor;
     public void WarriorSpawn(GameObject pos)
@@ -18,8 +18,10 @@ public class Warriorİnstantiate : MonoSingleton<Warriorİnstantiate>
         obj.transform.position = new Vector3(pos.transform.position.x, pos.transform.position.y + 1, pos.transform.position.z);
         obj.transform.LookAt(_rivalCastel.transform);
         WarriorStatManager.Instance.currentWarriorCount++;
-        GetComponent<WarriorWalk>().Walk();
+        obj.GetComponent<WarriorWalk>().Walk();
         WarriorObject.Add(obj);
+        WarriorBool.Add(false);
+        Debug.Log("HHG");
 
         if (WarriorStatManager.Instance.currentWarriorCount == WarriorStatManager.Instance.warriorCount)
         {

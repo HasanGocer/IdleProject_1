@@ -10,6 +10,6 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
 
     public void CastleHealthUpdate()
     {
-        bar.fillAmount = CastelStat.Instance.health / CastelStat.Instance.maxHealth;
+        bar.fillAmount = (float)CastelStat.Instance.health / (float)CastelStat.Instance.maxHealth;
     }
 }

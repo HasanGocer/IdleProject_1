@@ -40,10 +40,11 @@ public class RivalWarriorWalk : MonoBehaviour
     {
         for (int i = 0; i < Warrior›nstantiate.Instance.WarriorObject.Count; i++)
         {
-            if (minDistance > Vector3.Distance(Warrior›nstantiate.Instance.WarriorObject[i].transform.position, WarriorStatManager.Instance.CastlePos.transform.position))
+            if (minDistance > Vector3.Distance(Warrior›nstantiate.Instance.WarriorObject[i].transform.position, WarriorStatManager.Instance.CastlePos.transform.position) && !Warrior›nstantiate.Instance.WarriorBool[i])
             {
                 minDistance = Vector3.Distance(Warrior›nstantiate.Instance.WarriorObject[i].transform.position, WarriorStatManager.Instance.CastlePos.transform.position);
                 focusWarrior = Warrior›nstantiate.Instance.WarriorObject[i];
+                Warrior›nstantiate.Instance.WarriorBool[i] = true;
             }
         }
     }
