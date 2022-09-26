@@ -22,6 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
+        inPlacement = true;
         if (PlayerPrefs.HasKey("money"))
         {
             money = PlayerPrefs.GetInt("money");

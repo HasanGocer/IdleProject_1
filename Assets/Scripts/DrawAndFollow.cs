@@ -32,7 +32,7 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
             switch (touch.phase)
             {
                 case TouchPhase.Moved:
-                    if (draw && GameManager.Instance.inPlacement && draw && !inMerge)
+                    if (draw && GameManager.Instance.inPlacement && !inMerge)
                     {
                         draw = false;
                         StartCoroutine(WayPointsSelect());
@@ -44,6 +44,7 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
                     wayPoints.Clear();
                     wayIndex = 1;
                     inMerge = false;
+                    draw = true;
                     break;
                 default:
                     break;
@@ -66,7 +67,12 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
             Warrior›nstantiate.Instance.WarriorSpawn(newWayPoint);
             wayIndex++;
         }
+        else
+        {
+            yield return null;
+        }
         yield return new WaitForSeconds(waypointCooldawn);
         draw = true;
+       
     }
 }

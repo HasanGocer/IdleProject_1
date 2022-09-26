@@ -5,4 +5,6 @@ using UnityEngine;
 public class WarriorStatManager : MonoSingleton<WarriorStatManager>
 {
     public int warriorCount, currentWarriorCount;
+    public GameObject CastlePos;
+    public float WalkCountdown;
 }

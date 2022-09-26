@@ -45,7 +45,9 @@ public class MergeObject : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Castle"))
         {
-
+            ObjectPool.Instance.AddObject(OPCount, this.gameObject);
+            CastelStat.Instance.health -= GetComponent<WarriorStat>().healthCount;
+            CastleHealthBar.Instance.CastleHealthUpdate();
         }
         else if (collision.gameObject.CompareTag("Multiplication"))
         {
