@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
+    //KULLANILMIYOR
+    
     Vector3 distence;
 
     Vector3 pos;

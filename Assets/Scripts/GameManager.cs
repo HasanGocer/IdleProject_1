@@ -19,10 +19,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     public int level;
     public int money;
+    public int vibration;
+    public int sound;
 
     private void Start()
     {
-        inPlacement = true;
+        startGame = true;
         if (PlayerPrefs.HasKey("money"))
         {
             money = PlayerPrefs.GetInt("money");
@@ -41,31 +43,49 @@ public class GameManager : MonoSingleton<GameManager>
             PlayerPrefs.SetInt("level", 1);
         }
 
-        if (PlayerPrefs.HasKey("archerArrowCountdown"))
+        if (PlayerPrefs.HasKey("vibration"))
         {
-            CastelStat.Instance.archerArrowCountDown = PlayerPrefs.GetFloat("archerArrowCountDown");
+            vibration = PlayerPrefs.GetInt("vibration");
         }
         else
         {
-            PlayerPrefs.SetFloat("archerArrowCountDown", CastelStat.Instance.archerArrowCountDown);
+            PlayerPrefs.SetInt("vibration", 1);
+        }
+
+        if (PlayerPrefs.HasKey("sound"))
+        {
+            sound = PlayerPrefs.GetInt("sound");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("sound", 1);
+        }
+
+        if (PlayerPrefs.HasKey("archerArrowCountdown"))
+        {
+            CastleStat.Instance.archerArrowCountDown = PlayerPrefs.GetFloat("archerArrowCountDown");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("archerArrowCountDown", CastleStat.Instance.archerArrowCountDown);
         }
 
         if (PlayerPrefs.HasKey("health"))
         {
-            CastelStat.Instance.health = PlayerPrefs.GetInt("health");
+            CastleStat.Instance.health = PlayerPrefs.GetInt("health");
         }
         else
         {
-            PlayerPrefs.SetInt("health", CastelStat.Instance.health);
+            PlayerPrefs.SetInt("health", CastleStat.Instance.health);
         }
 
         if (PlayerPrefs.HasKey("rivalWarriorCount"))
         {
-            CastelStat.Instance.rivalWarriorCount = PlayerPrefs.GetInt("rivalWarriorCount");
+            CastleStat.Instance.rivalWarriorCount = PlayerPrefs.GetInt("rivalWarriorCount");
         }
         else
         {
-            PlayerPrefs.SetInt("rivalWarriorCount", CastelStat.Instance.rivalWarriorCount);
+            PlayerPrefs.SetInt("rivalWarriorCount", CastleStat.Instance.rivalWarriorCount);
         }
 
         if (PlayerPrefs.HasKey("warriorCount"))
@@ -80,7 +100,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SetLevel()
     {
-        CastelStat.Instance.SetCastelStat();
+        CastleStat.Instance.SetCastelStat();
         PlayerPrefs.SetInt("level", level);
     }
 
@@ -89,19 +109,29 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerPrefs.SetInt("money", money);
     }
 
+    public void SetSound()
+    {
+        PlayerPrefs.SetInt("sound", sound);
+    }
+
+    public void SetVibration()
+    {
+        PlayerPrefs.SetInt("vibration", vibration);
+    }
+
     public void SetArcherArrowCountdown()
     {
-        PlayerPrefs.SetFloat("archerArrowCountdown", CastelStat.Instance.archerArrowCountDown);
+        PlayerPrefs.SetFloat("archerArrowCountdown", CastleStat.Instance.archerArrowCountDown);
     }
 
     public void SetHealth()
     {
-        PlayerPrefs.SetInt("health", CastelStat.Instance.health);
+        PlayerPrefs.SetInt("health", CastleStat.Instance.health);
     }
 
     public void SetRivalWarriorCount()
     {
-        PlayerPrefs.SetInt("rivalWarriorCount", CastelStat.Instance.rivalWarriorCount);
+        PlayerPrefs.SetInt("rivalWarriorCount", CastleStat.Instance.rivalWarriorCount);
     }
 
     public void SetWarriorCount()

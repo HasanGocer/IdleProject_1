@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MergeMechanic : MonoSingleton<MergeMechanic>
 {
@@ -20,6 +21,7 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         {
             GameObject obj1 = ObjectPool.Instance.GetPooledObject(OPMergeCount - 1);
             obj1.transform.position = new Vector3(objectShot.transform.position.x, objectShot.transform.position.y, objectShot.transform.position.z);
+            obj1.GetComponent<WarriorWalk>().Walk();
         }
     }
 
@@ -39,6 +41,7 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         GameObject obj = ObjectPool.Instance.GetPooledObject(OPCount + 1);
 
         obj.transform.position = obj1.transform.position;
+        obj.GetComponent<WarriorWalk>().Walk();
     }
 
 

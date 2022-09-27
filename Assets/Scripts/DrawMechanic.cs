@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DrawMechanic : MonoBehaviour
 {
+    //KULLANILMIYOR
+
     Touch touch;
     private void Update()
     {

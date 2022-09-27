@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WarriorStatManager : MonoSingleton<WarriorStatManager>
 {
+    //warriorlarýn ana statlarýnýn tutulduðu yerdir ve çekilmesi gereken ana deðerlerin çekildiði yeridir
+
     public int warriorCount, currentWarriorCount;
     public GameObject CastlePos;
-    public float WalkCountdown;
+    public float WalkCountdownWay;
 }

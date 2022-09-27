@@ -10,6 +10,16 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
 
     public void CastleHealthUpdate()
     {
-        bar.fillAmount = (float)CastelStat.Instance.health / (float)CastelStat.Instance.maxHealth;
+        bar.fillAmount = (float)CastleStat.Instance.health / (float)CastleStat.Instance.maxHealth;
+
+        if (CastleStat.Instance.health == 0)
+        {
+            GameManager.Instance.inPlacement = false;
+            GameManager.Instance.inMerge = false;
+            GameManager.Instance.inFight = false;
+            //genel game finish de kontrol et
+            GameManager.Instance.inFinish = false;
+            Buttons.Instance.finishGame.SetActive(true);
+        }
     }
 }
