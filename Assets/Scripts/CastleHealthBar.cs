@@ -12,7 +12,7 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
     {
         bar.fillAmount = (float)CastleStat.Instance.health / (float)CastleStat.Instance.maxHealth;
 
-        if (CastleStat.Instance.health == 0)
+        if (CastleStat.Instance.health <= 0)
         {
             GameManager.Instance.inPlacement = false;
             GameManager.Instance.inMerge = false;

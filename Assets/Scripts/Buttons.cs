@@ -24,14 +24,14 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Button _settingButton;
     [SerializeField] private GameObject _settingGame;
 
-    [SerializeField] private Button _marketButton;
+    /*[SerializeField] private Button _marketButton;
     [SerializeField] private Button _archerArrowSpeedButton, _archerShotButton, _characterSpeedButton, _towerButton;
     [SerializeField] private Text _archerArrowSpeedText, _archerShotText, _characterSpeedText, _towerText;
     [SerializeField] private Text _archerArrowSpeedPriceText, _archerShotPriceText, _characterSpeedPriceText, _towerPriceText;
     [SerializeField] private List<Button> _marketSelectedButton = new List<Button>();
     [SerializeField] private List<GameObject> _marketSelectedGame = new List<GameObject>();
     [SerializeField] private Button backToGame;
-    public GameObject marketGame;
+    public GameObject marketGame;*/
 
     [SerializeField] private Button _finishButton;
     public GameObject finishGame;
@@ -80,19 +80,19 @@ public class Buttons : MonoSingleton<Buttons>
         _startButton.onClick.AddListener(StartButton);
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);
-        //_archerArrowSpeedButton.onClick.AddListener(ArcherArrowSpeedFactorPlus);
+        /*_archerArrowSpeedButton.onClick.AddListener(ArcherArrowSpeedFactorPlus);
         _marketButton.onClick.AddListener(MarketButton);
-        backToGame.onClick.AddListener(MarketBackButton);
+        _rewardButton.onClick.AddListener(RewardOpen);
+        _rewardLastButton.onClick.AddListener(RewardLastButton);
+        backToGame.onClick.AddListener(MarketBackButton);*/
         _settingButton.onClick.AddListener(SettingButton);
         _settingBackButton.onClick.AddListener(SettingBackButton);
         _finishButton.onClick.AddListener(FinishButton);
         _failResumeButton.onClick.AddListener(FailResumeButton);
         _failRetryButton.onClick.AddListener(FailRetryButton);
-        _rewardButton.onClick.AddListener(RewardOpen);
         _chest1Button.onClick.AddListener(OpenChest);
         _chest2Button.onClick.AddListener(OpenChest);
         _chest3Button.onClick.AddListener(OpenChest);
-        _rewardLastButton.onClick.AddListener(RewardLastButton);
     }
 
     private void TextStart()
@@ -128,18 +128,18 @@ public class Buttons : MonoSingleton<Buttons>
 
 
 
-    public void MarketSelected()
+    /*public void MarketSelected()
     {
         for (int i = 0; i < _marketSelectedButton.Count; i++)
         {
-            /*if (i == GameManager.Instance.MarketSelectWindow)
+            if (i == GameManager.Instance.MarketSelectWindow)
             {
                 _marketSelectedGame[i].SetActive(true);
                 continue;
-            }*/
+            }
             _marketSelectedGame[i].SetActive(false);
         }
-    }
+    }*/
 
     public void StartButton()
     {
@@ -256,7 +256,7 @@ public class Buttons : MonoSingleton<Buttons>
         }
     }
 
-    private void RewardOpen()
+    /*private void RewardOpen()
     {
         marketGame.SetActive(false);
         mainChestGame.SetActive(true);
@@ -304,5 +304,5 @@ public class Buttons : MonoSingleton<Buttons>
         {
             startGame.SetActive(false);
         }
-    }
+    }*/
 }
