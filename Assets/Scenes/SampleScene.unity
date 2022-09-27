@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - objectPrefab: {fileID: 3335660322486699806, guid: c2a01af4f369ac842b37a66ef8c1e81c, type: 3}
+  - objectPrefab: {fileID: 1955206049255590503, guid: b7211b209e856094981c1cc980b6c6e2, type: 3}
     poolSize: 100
   - objectPrefab: {fileID: 2297854943748927810, guid: fd8b8acf79d35df4888fe0ffac436624, type: 3}
     poolSize: 450
@@ -630,23 +630,6 @@ MonoBehaviour:
   _vibrationButton: {fileID: 334779332973207000}
   _settingButton: {fileID: 334779334657724383}
   _settingGame: {fileID: 6863483783261545021}
-  _marketButton: {fileID: 6863483783397718438}
-  _archerArrowSpeedButton: {fileID: 0}
-  _archerShotButton: {fileID: 0}
-  _characterSpeedButton: {fileID: 0}
-  _towerButton: {fileID: 0}
-  _archerArrowSpeedText: {fileID: 0}
-  _archerShotText: {fileID: 0}
-  _characterSpeedText: {fileID: 0}
-  _towerText: {fileID: 0}
-  _archerArrowSpeedPriceText: {fileID: 0}
-  _archerShotPriceText: {fileID: 0}
-  _characterSpeedPriceText: {fileID: 0}
-  _towerPriceText: {fileID: 0}
-  _marketSelectedButton: []
-  _marketSelectedGame: []
-  backToGame: {fileID: 6863483782154124641}
-  marketGame: {fileID: 6863483782802103613}
   _finishButton: {fileID: 334779333350416691}
   finishGame: {fileID: 6863483781584492468}
   _failResumeButton: {fileID: 334779333521561986}
@@ -54367,7 +54350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6863483783397718437
 RectTransform:
   m_ObjectHideFlags: 0
