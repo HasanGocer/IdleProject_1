@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MergeObject : MonoBehaviour
 {
     //nesneye deðen þeye göre bir merge mechanic çalýþtýtýr
+    [SerializeField] private int OPWarriorCount;
+    [SerializeField] private int intMulti;//ileride multinin içinden stat yapýlýp çekilcek
+    //[SerializeField] private TextMeshPro textMulti;
+
 
     public int OPCount;
     public bool inChange;
@@ -58,7 +63,13 @@ public class MergeObject : MonoBehaviour
         }
         else if (other.CompareTag("Multiplication"))
         {
-
+            //textMulti.text = intMulti.ToString();
+            for (int i = 0; i < intMulti - 1; i++)
+            {
+                GameObject obj = ObjectPool.Instance.GetPooledObject(OPWarriorCount);
+                obj.transform.position = this.transform.position;
+                obj.transform.LookAt(WarriorStatManager.Instance.CastlePos.transform.position);
+            }
         }
     }
 }
