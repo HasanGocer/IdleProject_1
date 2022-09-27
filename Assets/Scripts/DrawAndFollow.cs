@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DrawAndFollow : MonoSingleton<DrawAndFollow>
 {
+    //kameradan raycast atýp deðen yerin bizim adam koup koymamýza uygun olup olmadýðýna karar veriyor ve adamlarýn objecting pooldan çekilip yürümesine kadar uzanan bir aðý tetikliyor
+    
     [SerializeField] private float waypointCooldawn;
     public List<Transform> wayPoints;
     public int wayIndex;
@@ -32,7 +34,7 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
             switch (touch.phase)
             {
                 case TouchPhase.Moved:
-                    if (draw && GameManager.Instance.inPlacement && !inMerge)
+                    if (draw && GameManager.Instance.inPlacement && !inMerge && GameManager.Instance.inFight)
                     {
                         draw = false;
                         StartCoroutine(WayPointsSelect());
