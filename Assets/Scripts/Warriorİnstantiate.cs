@@ -24,7 +24,7 @@ public class Warriorİnstantiate : MonoSingleton<Warriorİnstantiate>
         WarriorBool.Add(false);
         GameObject partical = ObjectPool.Instance.GetPooledObject(_OPWarriorSpawnParticalCount);
         partical.transform.position = obj.transform.position;
-
+        Debug.Log("HHG");
         if (WarriorStatManager.Instance.currentWarriorCount == WarriorStatManager.Instance.warriorCount)
         {
             GameManager.Instance.inPlacement = false;

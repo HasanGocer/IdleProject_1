@@ -20,6 +20,19 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
             //genel game finish de kontrol et
             GameManager.Instance.inFinish = false;
             Buttons.Instance.finishGame.SetActive(true);
+            GameManager.Instance.level++;
+            GameManager.Instance.SetLevel();
+            Buttons.Instance.levelText.text = GameManager.Instance.level.ToString();
+            GetComponent<BoxCollider>().enabled = false;
         }
+        /*if (CastelStat.Instance.health >= 0 && WarriorStatManager.Instance.currentWarriorCount >= WarriorStatManager.Instance.warriorCount )
+        {
+            GameManager.Instance.inPlacement = false;
+            GameManager.Instance.inMerge = false;
+            GameManager.Instance.inFight = false;
+            GameManager.Instance.inFinish = false;
+            Buttons.Instance.finishGame.SetActive(true);
+            GetComponent<BoxCollider>().enabled = false;
+        }*/
     }
 }

@@ -44,13 +44,14 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Button _chest1Button, _chest2Button, _chest3Button;
     [SerializeField] private Image _chestImage1, _chestImage2;
     [SerializeField] private Text _chestMoney;
-    [SerializeField] private Button _rewardLastButton;
+    [SerializeField] private Button _rewardLastButton,countButton,speedButton;
 
 
     private void Start()
     {
-        GameManager.Instance.money += 9999;
-
+        //GameManager.Instance.money += 9999;
+        moneyText.text = GameManager.Instance.money.ToString();
+        levelText.text = GameManager.Instance.level.ToString();
         ButtonStart();
 
         TextStart();
@@ -75,6 +76,7 @@ public class Buttons : MonoSingleton<Buttons>
         }
     }
 
+    
     private void ButtonStart()
     {
         _startButton.onClick.AddListener(StartButton);
@@ -93,8 +95,19 @@ public class Buttons : MonoSingleton<Buttons>
         _chest1Button.onClick.AddListener(OpenChest);
         _chest2Button.onClick.AddListener(OpenChest);
         _chest3Button.onClick.AddListener(OpenChest);
+        countButton.onClick.AddListener(CountButton);
+        speedButton.onClick.AddListener(SpeedButton);
     }
-
+    private void CountButton()
+    {
+        WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
+        GameManager.Instance.SetWarriorCount();
+    }
+    private void SpeedButton()
+    {
+        WarriorStatManager.Instance.WalkCountdownWay -=WarriorStatManager.Instance.newWalkSpeed;
+        GameManager.Instance.SetWarriorWalkSpeed();
+    }
     private void TextStart()
     {
         /*_archerArrowSpeedText.text = RivalD.Instance.field.archerArrowSpeed.ToString();
@@ -218,6 +231,7 @@ public class Buttons : MonoSingleton<Buttons>
     private void FinishButton()
     {
         SceneManager.LoadScene(0);
+        
     }
 
     private void FailResumeButton()

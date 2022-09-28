@@ -60,6 +60,8 @@ public class MergeObject : MonoBehaviour
             ObjectPool.Instance.AddObject(OPCount, this.gameObject);
             CastleStat.Instance.health -= GetComponent<WarriorStat>().healthCount;
             CastleHealthBar.Instance.CastleHealthUpdate();
+            GameManager.Instance.money += GameManager.Instance.addedMoney;
+            GameManager.Instance.SetMoney();
         }
         else if (other.CompareTag("Multiplication"))
         {

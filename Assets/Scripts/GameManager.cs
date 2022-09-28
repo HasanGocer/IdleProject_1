@@ -18,7 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     public int level;
-    public int money;
+    public int money,addedMoney;
     public int vibration;
     public int sound;
 
@@ -137,5 +137,9 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetWarriorCount()
     {
         PlayerPrefs.SetInt("warriorCount", WarriorStatManager.Instance.warriorCount);
+    }
+    public void SetWarriorWalkSpeed()
+    {
+        PlayerPrefs.SetFloat("WalkCountdownWay", WarriorStatManager.Instance.WalkCountdownWay);
     }
 }
