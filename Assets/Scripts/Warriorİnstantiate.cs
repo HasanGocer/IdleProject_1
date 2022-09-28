@@ -12,7 +12,7 @@ public class Warriorİnstantiate : MonoSingleton<Warriorİnstantiate>
     public List<bool> WarriorBool = new List<bool>();
 
     //warriorun doğacağı yeri vermemiz yetiyor oraya warrior spawnlıyor;
-    public void WarriorSpawn(GameObject pos)
+   public void WarriorSpawn(GameObject pos)
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject(_OPWarriorCount);
 

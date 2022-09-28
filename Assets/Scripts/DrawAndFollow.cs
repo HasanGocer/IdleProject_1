@@ -60,7 +60,7 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
         Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, maxRange));
         Vector3 direction = worldFromMousePos - Camera.main.transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, direction, out hit, maxRange))
+        if (Physics.Raycast(Camera.main.transform.position, direction, out hit, maxRange)&& WarriorStatManager.Instance.currentWarriorCount <= WarriorStatManager.Instance.warriorCount)
         {
             Debug.Log("HG4");
             GameObject newWayPoint = new GameObject("WayPoint");
