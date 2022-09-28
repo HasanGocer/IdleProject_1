@@ -841,7 +841,7 @@ MonoBehaviour:
   currentWarriorCount: 0
   newWarriorCount: 5
   CastlePos: {fileID: 384856232}
-  WalkCountdownWay: 0.1
+  WalkCountdownWay: 0.15
   newWalkSpeed: 0.001648
 --- !u!114 &412771680
 MonoBehaviour:

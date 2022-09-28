@@ -45,12 +45,12 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Image _chestImage1, _chestImage2;
     [SerializeField] private Text _chestMoney;
     [SerializeField] private Button _rewardLastButton,countButton,speedButton;
-
+    public GameObject castleBarUI;
 
     private void Start()
     {
         //GameManager.Instance.money += 9999;
-        
+        castleBarUI.SetActive(false);
         levelText.text = GameManager.Instance.level.ToString();
         ButtonStart();
 
@@ -83,7 +83,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void ButtonStart()
     {
-        CastleHealthBar.Instance.castleBarUI.SetActive(true);
+        castleBarUI.SetActive(true);
         _startButton.onClick.AddListener(StartButton);
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);

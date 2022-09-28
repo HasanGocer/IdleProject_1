@@ -23,9 +23,9 @@ public class GameManager : MonoSingleton<GameManager>
     public int sound;
 
     private void Start()
-    {
-        CastleHealthBar.Instance.castleBarUI.SetActive(false);
-        startGame = true;       
+    {        
+        startGame = true;
+        
         if (PlayerPrefs.HasKey("money"))
         {
             money = PlayerPrefs.GetInt("money");
@@ -96,6 +96,15 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             PlayerPrefs.SetInt("warriorCount", WarriorStatManager.Instance.warriorCount);
+        }
+
+        if (PlayerPrefs.HasKey("WalkCountdownWay"))
+        {
+            WarriorStatManager.Instance.WalkCountdownWay = PlayerPrefs.GetFloat("WalkCountdownWay");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("WalkCountdownWay", WarriorStatManager.Instance.WalkCountdownWay);
         }
     }
 

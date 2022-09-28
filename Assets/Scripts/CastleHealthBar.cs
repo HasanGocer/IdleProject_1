@@ -7,8 +7,7 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
 {
     //can barý her kuleye saldýrý olduðunda güncellenir
     [SerializeField] private Image bar;
-    [SerializeField]
-    public GameObject castleBarUI;
+    
 
     public void CastleHealthUpdate()
     {
@@ -24,7 +23,7 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
             Buttons.Instance.finishGame.SetActive(true);
             GameManager.Instance.level++;
             GameManager.Instance.SetLevel();
-            CastleHealthBar.Instance.castleBarUI.SetActive(false);
+            Buttons.Instance.castleBarUI.SetActive(false);
             Buttons.Instance.levelText.text = GameManager.Instance.level.ToString();
             GetComponent<BoxCollider>().enabled = false;
         }
