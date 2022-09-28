@@ -24,7 +24,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
-        startGame = true;
+        CastleHealthBar.Instance.castleBarUI.SetActive(false);
+        startGame = true;       
         if (PlayerPrefs.HasKey("money"))
         {
             money = PlayerPrefs.GetInt("money");

@@ -50,7 +50,7 @@ public class Buttons : MonoSingleton<Buttons>
     private void Start()
     {
         //GameManager.Instance.money += 9999;
-        moneyText.text = GameManager.Instance.money.ToString();
+        
         levelText.text = GameManager.Instance.level.ToString();
         ButtonStart();
 
@@ -75,10 +75,15 @@ public class Buttons : MonoSingleton<Buttons>
             _vibrationButton.gameObject.GetComponent<Image>().sprite = _red;
         }
     }
+    private void Update()
+    {
+        moneyText.text = GameManager.Instance.money.ToString();
 
-    
+    }
+
     private void ButtonStart()
     {
+        CastleHealthBar.Instance.castleBarUI.SetActive(true);
         _startButton.onClick.AddListener(StartButton);
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);
@@ -102,6 +107,10 @@ public class Buttons : MonoSingleton<Buttons>
     {
         WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
         GameManager.Instance.SetWarriorCount();
+        CastleStat.Instance.health += CastleStat.Instance.newHealth;
+        GameManager.Instance.SetHealth();
+        CastleStat.Instance.maxHealth = CastleStat.Instance.health;
+        
     }
     private void SpeedButton()
     {

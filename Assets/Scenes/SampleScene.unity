@@ -191,10 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b68c26fc83e8ac643965410660e70bc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38b4731e406462848920df2111e3e61c, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -423,8 +423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: -0.769, y: 0}
+  m_SizeDelta: {x: 624.462, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &256639995
 PrefabInstance:
@@ -2623,9 +2623,9 @@ MonoBehaviour:
   inFail: 0
   inFinish: 0
   inGameFinish: 0
-  level: 1
+  level: 36
   money: 0
-  addedMoney: 3
+  addedMoney: 1
   vibration: 0
   sound: 0
 --- !u!114 &1304064733
@@ -3334,8 +3334,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -424}
-  m_SizeDelta: {x: 594.4513, y: 94.4512}
+  m_AnchoredPosition: {x: 6.114502, y: -424}
+  m_SizeDelta: {x: 622.4073, y: 94.4512}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1702472120
 MonoBehaviour:
@@ -3357,7 +3357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9320dce57bba0e346afa7da9d1a62ae6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c9a8ee3115ec3e43aba9876f0142b1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30877,6 +30877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 173890216}
+  castleBarUI: {fileID: 21374606}
 --- !u!114 &3632672153390071380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30892,6 +30893,7 @@ MonoBehaviour:
   archerArrowCountDown: 0.5
   maxHealth: 10
   health: 10
+  newHealth: 4
   rivalWarriorCount: 20
 --- !u!4 &3633175742765787196
 Transform:

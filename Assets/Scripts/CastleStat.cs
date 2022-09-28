@@ -6,7 +6,7 @@ public class CastleStat : MonoSingleton<CastleStat>
 {
     //kalenin can deðerini belirliyor ve içindeki fonksiyon oyun sonunda yeni deðreleri belirliyor
     public float archerArrowCountDown;
-    public int maxHealth, health;
+    public int maxHealth, health, newHealth;
     public int rivalWarriorCount;
 
     private void Start()
