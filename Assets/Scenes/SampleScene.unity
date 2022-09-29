@@ -2686,6 +2686,7 @@ MonoBehaviour:
   _rewardLastButton: {fileID: 6863483781346869736}
   countButton: {fileID: 697573172}
   speedButton: {fileID: 1191974895}
+  castleBarUI: {fileID: 1702472118}
 --- !u!1001 &1335189317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30877,7 +30878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 173890216}
-  castleBarUI: {fileID: 21374606}
 --- !u!114 &3632672153390071380
 MonoBehaviour:
   m_ObjectHideFlags: 0
