@@ -12,11 +12,11 @@ public class Warriorİnstantiate : MonoSingleton<Warriorİnstantiate>
     public List<bool> WarriorBool = new List<bool>();
 
     //warriorun doğacağı yeri vermemiz yetiyor oraya warrior spawnlıyor;
-   public void WarriorSpawn(GameObject pos)
+    public void WarriorSpawn(GameObject pos)
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject(_OPWarriorCount);
 
-        obj.transform.position = new Vector3(pos.transform.position.x, pos.transform.position.y + 2, pos.transform.position.z);
+        obj.transform.position = new Vector3(pos.transform.position.x, pos.transform.position.y + 1, pos.transform.position.z);
         obj.transform.LookAt(_rivalCastel.transform);
         WarriorStatManager.Instance.currentWarriorCount++;
         obj.GetComponent<WarriorWalk>().Walk();

@@ -44,13 +44,12 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Button _chest1Button, _chest2Button, _chest3Button;
     [SerializeField] private Image _chestImage1, _chestImage2;
     [SerializeField] private Text _chestMoney;
-    [SerializeField] private Button _rewardLastButton,countButton,speedButton;
-    public GameObject castleBarUI;
+    [SerializeField] private Button _rewardLastButton, countButton, speedButton;
 
     private void Start()
     {
         //GameManager.Instance.money += 9999;
-        castleBarUI.SetActive(false);
+        CastleHealthBar.Instance.parentBar.gameObject.SetActive(false);
         levelText.text = GameManager.Instance.level.ToString();
         ButtonStart();
 
@@ -75,15 +74,9 @@ public class Buttons : MonoSingleton<Buttons>
             _vibrationButton.gameObject.GetComponent<Image>().sprite = _red;
         }
     }
-    private void Update()
-    {
-        moneyText.text = GameManager.Instance.money.ToString();
-
-    }
 
     private void ButtonStart()
     {
-        castleBarUI.SetActive(true);
         _startButton.onClick.AddListener(StartButton);
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);
@@ -107,14 +100,12 @@ public class Buttons : MonoSingleton<Buttons>
     {
         WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
         GameManager.Instance.SetWarriorCount();
-        CastleStat.Instance.health += CastleStat.Instance.newHealth;
+        CastleStat.Instance.maxHealth += CastleStat.Instance.newHealth;
         GameManager.Instance.SetHealth();
-        
-        
     }
     private void SpeedButton()
     {
-        WarriorStatManager.Instance.WalkCountdownWay -=WarriorStatManager.Instance.newWalkSpeed;
+        WarriorStatManager.Instance.WalkCountdownWay -= WarriorStatManager.Instance.newWalkSpeed;
         GameManager.Instance.SetWarriorWalkSpeed();
     }
     private void TextStart()
@@ -165,6 +156,8 @@ public class Buttons : MonoSingleton<Buttons>
 
     public void StartButton()
     {
+        CastleStat.Instance.SetCastelStat();
+        CastleHealthBar.Instance.parentBar.gameObject.SetActive(true);
         GameManager.Instance.startGame = false;
         GameManager.Instance.inPlacement = true;
         GameManager.Instance.inFight = true;
@@ -240,7 +233,7 @@ public class Buttons : MonoSingleton<Buttons>
     private void FinishButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+
     }
 
     private void FailResumeButton()

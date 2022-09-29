@@ -73,11 +73,11 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (PlayerPrefs.HasKey("health"))
         {
-            CastleStat.Instance.health = PlayerPrefs.GetInt("health");
+            CastleStat.Instance.maxHealth = PlayerPrefs.GetInt("health");
         }
         else
         {
-            PlayerPrefs.SetInt("health", CastleStat.Instance.health);
+            PlayerPrefs.SetInt("health", CastleStat.Instance.maxHealth);
         }
 
         if (PlayerPrefs.HasKey("rivalWarriorCount"))
@@ -136,7 +136,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SetHealth()
     {
-        PlayerPrefs.SetInt("health", CastleStat.Instance.health);
+        PlayerPrefs.SetInt("health", CastleStat.Instance.maxHealth);
     }
 
     public void SetRivalWarriorCount()
