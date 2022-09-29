@@ -3826,7 +3826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   archerArrowCountdownFactor: 0.2
-  healthFactor: 1
+  healthFactor: 3
   rivalWarriorCountFactor: 1
 --- !u!114 &1711032068
 MonoBehaviour:
