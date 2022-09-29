@@ -109,7 +109,7 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.SetWarriorCount();
         CastleStat.Instance.health += CastleStat.Instance.newHealth;
         GameManager.Instance.SetHealth();
-        CastleStat.Instance.maxHealth = CastleStat.Instance.health;
+        
         
     }
     private void SpeedButton()
@@ -239,7 +239,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void FinishButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
 
