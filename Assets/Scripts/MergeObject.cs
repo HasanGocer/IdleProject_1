@@ -44,7 +44,9 @@ public class MergeObject : MonoBehaviour
 
             if (mergeObject.OPCount == OPCount && OPCount != MergeMechanic.Instance.OPLastUpCount)
             {
-                MergeMechanic.Instance.MergeAdd(collision.gameObject, this.gameObject, OPCount);
+                GameObject obj = MergeMechanic.Instance.MergeAdd(collision.gameObject, this.gameObject, OPCount);
+                Warrior›nstantiate.Instance.WarriorObject.Add(obj);
+                Warrior›nstantiate.Instance.WarriorBool.Add(false);
             }
             else
             {

@@ -54,7 +54,7 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
     }
 
     //rivallerin birleþip bir üst levela yükselmesini saðlaan fonksiyon
-    public void MergeAdd(GameObject obj1, GameObject obj2, int OPCount)
+    public GameObject MergeAdd(GameObject obj1, GameObject obj2, int OPCount)
     {
         ObjectPool.Instance.AddObject(OPCount, obj1);
         ObjectPool.Instance.AddObject(OPCount, obj2);
@@ -70,6 +70,7 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         obj.transform.position = obj1.transform.position;
         obj.GetComponent<WarriorWalk>().Walk();
 
+        return obj;
     }
 
     IEnumerator ParticalFalse(GameObject partical)

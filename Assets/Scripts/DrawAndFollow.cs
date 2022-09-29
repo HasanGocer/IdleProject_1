@@ -5,7 +5,7 @@ using UnityEngine;
 public class DrawAndFollow : MonoSingleton<DrawAndFollow>
 {
     //kameradan raycast atýp deðen yerin bizim adam koup koymamýza uygun olup olmadýðýna karar veriyor ve adamlarýn objecting pooldan çekilip yürümesine kadar uzanan bir aðý tetikliyor
-    
+
     [SerializeField] private float waypointCooldawn;
     public List<Transform> wayPoints;
     public int wayIndex;
@@ -42,7 +42,6 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
                     break;
 
                 case TouchPhase.Ended:
-                    Debug.Log("HG3");
                     wayPoints.Clear();
                     wayIndex = 1;
                     inMerge = false;
@@ -56,18 +55,21 @@ public class DrawAndFollow : MonoSingleton<DrawAndFollow>
 
     IEnumerator WayPointsSelect()
     {
-        Debug.Log("HG2");
         Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, maxRange));
         Vector3 direction = worldFromMousePos - Camera.main.transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, direction, out hit, maxRange)&& WarriorStatManager.Instance.currentWarriorCount <= WarriorStatManager.Instance.warriorCount)
+        if (Physics.Raycast(Camera.main.transform.position, direction, out hit, maxRange) && WarriorStatManager.Instance.currentWarriorCount <= WarriorStatManager.Instance.warriorCount)
         {
-            Debug.Log("HG4");
             GameObject newWayPoint = new GameObject("WayPoint");
             newWayPoint.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             wayPoints.Add(newWayPoint.transform);
             WarriorÝnstantiate.Instance.WarriorSpawn(newWayPoint);
             wayIndex++;
+            if (WarriorStatManager.Instance.currentWarriorCount + 3 == WarriorStatManager.Instance.warriorCount)
+            {
+                StartCoroutine(FinishGame.Instance.ControlGame());
+
+            }
         }
         else
         {
