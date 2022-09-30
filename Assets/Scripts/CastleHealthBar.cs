@@ -28,7 +28,7 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
             GameManager.Instance.SetLevel();
             parentBar.gameObject.SetActive(false);
             Buttons.Instance.levelText.text = GameManager.Instance.level.ToString();
-            GetComponent<BoxCollider>().enabled = false;
+            //GetComponent<BoxCollider>().enabled = false;
         }
 
         if (GameManager.Instance.level % 10 == 0)
