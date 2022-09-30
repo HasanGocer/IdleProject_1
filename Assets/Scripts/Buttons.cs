@@ -98,18 +98,29 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private void CountButton()
     {
-        WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
-        GameManager.Instance.SetWarriorCount();
-        CastleStat.Instance.maxHealth += CastleStat.Instance.newHealth;
-        GameManager.Instance.SetHealth();
+        if (GameManager.Instance.money >= MarketManager.Instance.WarriorCountPrice)
+        {
+            WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
+            GameManager.Instance.SetWarriorCount();
+            CastleStat.Instance.maxHealth += CastleStat.Instance.newHealth;
+            GameManager.Instance.SetHealth();
+            MarketManager.Instance.CountCurrent += MarketManager.Instance.CountNew;
+            MarketManager.Instance.SetMarket();
+        }
     }
     private void SpeedButton()
     {
-        WarriorStatManager.Instance.WalkCountdownWay -= WarriorStatManager.Instance.newWalkSpeed;
-        GameManager.Instance.SetWarriorWalkSpeed();
+        if (GameManager.Instance.money >= MarketManager.Instance.warriorSoeedPrice)
+        {
+            WarriorStatManager.Instance.WalkCountdownWay -= WarriorStatManager.Instance.newWalkSpeed;
+            GameManager.Instance.SetWarriorWalkSpeed();
+            MarketManager.Instance.speedCurrent += MarketManager.Instance.speedNew;
+            MarketManager.Instance.SetMarket();
+        }
     }
     private void TextStart()
     {
+        MarketManager.Instance.SetMarket();
         /*_archerArrowSpeedText.text = RivalD.Instance.field.archerArrowSpeed.ToString();
         _archerArrowSpeedPriceText.text = "" + RivalD.Instance.fieldPrice.archerArrowSpeed;
         _archerShotText.text = RivalD.Instance.field.archerShot.ToString();
