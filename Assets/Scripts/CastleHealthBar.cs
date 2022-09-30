@@ -17,6 +17,7 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
 
         if (CastleStat.Instance.health <= 0)
         {
+            AdManager.current.bannerView.Show();
             GameManager.Instance.inPlacement = false;
             GameManager.Instance.inMerge = false;
             GameManager.Instance.inFight = false;

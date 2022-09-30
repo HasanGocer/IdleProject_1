@@ -48,7 +48,10 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void Start()
     {
+        
+        Time.timeScale = 1;
         //GameManager.Instance.money += 9999;
+        AdManager.current.bannerView.Show();
         CastleHealthBar.Instance.parentBar.gameObject.SetActive(false);
         levelText.text = GameManager.Instance.level.ToString();
         ButtonStart();
@@ -95,11 +98,14 @@ public class Buttons : MonoSingleton<Buttons>
         _chest3Button.onClick.AddListener(OpenChest);
         countButton.onClick.AddListener(CountButton);
         speedButton.onClick.AddListener(SpeedButton);
+        
     }
     private void CountButton()
     {
         if (GameManager.Instance.money >= MarketManager.Instance.WarriorCountPrice)
         {
+            GameManager.Instance.money -= MarketManager.Instance.WarriorCountPrice;
+            GameManager.Instance.SetMoney();
             WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
             GameManager.Instance.SetWarriorCount();
             CastleStat.Instance.maxHealth += CastleStat.Instance.newHealth;
@@ -112,15 +118,18 @@ public class Buttons : MonoSingleton<Buttons>
     {
         if (GameManager.Instance.money >= MarketManager.Instance.warriorSoeedPrice)
         {
+            AdManager.current.bannerView.Hide();
             WarriorStatManager.Instance.WalkCountdownWay -= WarriorStatManager.Instance.newWalkSpeed;
             GameManager.Instance.SetWarriorWalkSpeed();
             MarketManager.Instance.speedCurrent += MarketManager.Instance.speedNew;
             MarketManager.Instance.SetMarket();
+           
         }
     }
     private void TextStart()
     {
         MarketManager.Instance.SetMarket();
+        moneyText.text = GameManager.Instance.money.ToString();
         /*_archerArrowSpeedText.text = RivalD.Instance.field.archerArrowSpeed.ToString();
         _archerArrowSpeedPriceText.text = "" + RivalD.Instance.fieldPrice.archerArrowSpeed;
         _archerShotText.text = RivalD.Instance.field.archerShot.ToString();
@@ -243,44 +252,72 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void FinishButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+        if (AdManager.current.IsReadyInterstitialAd())
+        {
+            AdManager.current.interstitial.Show();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void FailResumeButton()
     {
-        //reklam
+        if (AdManager.current.IsReadyInterstitialAd())
+        {
+            AdManager.current.interstitial.Show();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void FailRetryButton()
     {
-        SceneManager.LoadScene(0);
+        if (AdManager.current.IsReadyInterstitialAd())
+        {
+            AdManager.current.interstitial.Show();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     private void OpenChest()
     {
-        int count = Random.Range(0, 10);
-
-        if (count % 2 == 0)
+        if (AdManager.current.IsReadyInterstitialAd())
         {
-            chestChoseGame.SetActive(false);
-            openChestGame.SetActive(true);
-            _chestImage1.gameObject.SetActive(true);
-            count = Random.Range(50, 100);
-            _chestMoney.text = "+ " + count;
-            GameManager.Instance.money += count;
-            GameManager.Instance.SetMoney();
+            AdManager.current.interstitial.Show();
+            int count = Random.Range(0, 10);
+
+            if (count % 2 == 0)
+            {
+                chestChoseGame.SetActive(false);
+                openChestGame.SetActive(true);
+                _chestImage1.gameObject.SetActive(true);
+                count = Random.Range(50, 100);
+                _chestMoney.text = "+ " + count;
+                GameManager.Instance.money += count;
+                GameManager.Instance.SetMoney();
+            }
+            else
+            {
+                chestChoseGame.SetActive(false);
+                openChestGame.SetActive(true);
+                _chestImage2.gameObject.SetActive(true);
+                count = Random.Range(30, 60);
+                _chestMoney.text = "+ " + count;
+                GameManager.Instance.money += count;
+                GameManager.Instance.SetMoney();
+            }
         }
         else
         {
-            chestChoseGame.SetActive(false);
-            openChestGame.SetActive(true);
-            _chestImage2.gameObject.SetActive(true);
-            count = Random.Range(30, 60);
-            _chestMoney.text = "+ " + count;
-            GameManager.Instance.money += count;
-            GameManager.Instance.SetMoney();
+            SceneManager.LoadScene(0);
         }
+   
     }
 
     /*private void RewardOpen()
