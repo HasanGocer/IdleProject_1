@@ -25,7 +25,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start()
     {        
         startGame = true;
-        
+        GameObject.FindObjectOfType<AdManager>().InitializeAds();
         if (PlayerPrefs.HasKey("money"))
         {
             money = PlayerPrefs.GetInt("money");

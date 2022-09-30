@@ -6,6 +6,7 @@ public class FinishGame : MonoSingleton<FinishGame>
 {
     public IEnumerator ControlGame()
     {
+        AdManager.current.bannerView.Show();
         bool infinish = false;
         while (true)
         {
@@ -15,7 +16,7 @@ public class FinishGame : MonoSingleton<FinishGame>
                     infinish = true;
             }
 
-            if (infinish == false)
+            if (infinish == false && !GameManager.Instance.inFinish)
             {
                 if (CastleStat.Instance.health > 0)
                 {
@@ -25,6 +26,13 @@ public class FinishGame : MonoSingleton<FinishGame>
                     Buttons.Instance.failGame.SetActive(true);
 
                 }
+            }
+            else
+            {
+                GameManager.Instance.inFight = true;
+                GameManager.Instance.inMerge = true;
+                GameManager.Instance.inFail = false;
+                Buttons.Instance.failGame.SetActive(false);
             }
             infinish = false;
 
