@@ -22,7 +22,7 @@ public class CastleHealthBar : MonoSingleton<CastleHealthBar>
             GameManager.Instance.inMerge = false;
             GameManager.Instance.inFight = false;
             //genel game finish de kontrol et
-            GameManager.Instance.inFinish = false;
+            GameManager.Instance.inFinish = true;
             Buttons.Instance.finishGame.SetActive(true);
             GameManager.Instance.level++;
             GameManager.Instance.SetLevel();
