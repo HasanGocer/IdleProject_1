@@ -15,6 +15,11 @@ public class FinishGame : MonoSingleton<FinishGame>
                     infinish = true;
             }
 
+            if (GameManager.Instance.inFinish)
+            {
+                infinish = true;
+            }
+
             if (infinish == false)
             {
                 if (CastleStat.Instance.health > 0)
@@ -25,6 +30,13 @@ public class FinishGame : MonoSingleton<FinishGame>
                     Buttons.Instance.failGame.SetActive(true);
 
                 }
+            }
+            else
+            {
+                GameManager.Instance.inFight = true;
+                GameManager.Instance.inMerge = true;
+                GameManager.Instance.inFail = false;
+                Buttons.Instance.failGame.SetActive(false);
             }
             infinish = false;
 

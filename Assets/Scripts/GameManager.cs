@@ -18,14 +18,14 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     public int level;
-    public int money,addedMoney;
+    public int money, addedMoney;
     public int vibration;
     public int sound;
 
     private void Start()
-    {        
+    {
         startGame = true;
-        
+
         if (PlayerPrefs.HasKey("money"))
         {
             money = PlayerPrefs.GetInt("money");
