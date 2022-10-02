@@ -254,12 +254,11 @@ public class Buttons : MonoSingleton<Buttons>
     {
         if (AdManager.current.IsReadyInterstitialAd())
         {
-            AdManager.current.interstitial.Show();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            AdManager.current.interstitial.Show();           
         }
-        else
+        else if (!AdManager.current.IsReadyInterstitialAd())
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -268,12 +267,13 @@ public class Buttons : MonoSingleton<Buttons>
         if (AdManager.current.IsReadyInterstitialAd())
         {
             AdManager.current.interstitial.Show();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
         else
         {
             SceneManager.LoadScene(0);
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void FailRetryButton()
@@ -281,8 +281,9 @@ public class Buttons : MonoSingleton<Buttons>
         if (AdManager.current.IsReadyInterstitialAd())
         {
             AdManager.current.interstitial.Show();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OpenChest()
