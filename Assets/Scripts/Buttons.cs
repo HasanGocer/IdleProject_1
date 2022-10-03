@@ -48,7 +48,7 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void Start()
     {
-        
+
         Time.timeScale = 1;
         //GameManager.Instance.money += 9999;
         AdManager.current.bannerView.Show();
@@ -98,7 +98,7 @@ public class Buttons : MonoSingleton<Buttons>
         _chest3Button.onClick.AddListener(OpenChest);
         countButton.onClick.AddListener(CountButton);
         speedButton.onClick.AddListener(SpeedButton);
-        
+
     }
     private void CountButton()
     {
@@ -106,24 +106,29 @@ public class Buttons : MonoSingleton<Buttons>
         {
             GameManager.Instance.money -= MarketManager.Instance.WarriorCountPrice;
             GameManager.Instance.SetMoney();
+            moneyText.text = GameManager.Instance.money.ToString();
             WarriorStatManager.Instance.warriorCount += WarriorStatManager.Instance.newWarriorCount;
             GameManager.Instance.SetWarriorCount();
             CastleStat.Instance.maxHealth += CastleStat.Instance.newHealth;
             GameManager.Instance.SetHealth();
             MarketManager.Instance.CountCurrent += MarketManager.Instance.CountNew;
             MarketManager.Instance.SetMarket();
+            GameManager.Instance.SetWarriorCountMoney();
         }
     }
     private void SpeedButton()
     {
         if (GameManager.Instance.money >= MarketManager.Instance.warriorSoeedPrice)
         {
+            GameManager.Instance.money -= MarketManager.Instance.warriorSoeedPrice;
+            GameManager.Instance.SetMoney();
+            moneyText.text = GameManager.Instance.money.ToString();
             AdManager.current.bannerView.Hide();
             WarriorStatManager.Instance.WalkCountdownWay -= WarriorStatManager.Instance.newWalkSpeed;
             GameManager.Instance.SetWarriorWalkSpeed();
             MarketManager.Instance.speedCurrent += MarketManager.Instance.speedNew;
             MarketManager.Instance.SetMarket();
-           
+            GameManager.Instance.SetWarriorSpeedMoney();
         }
     }
     private void TextStart()
@@ -254,7 +259,7 @@ public class Buttons : MonoSingleton<Buttons>
     {
         if (AdManager.current.IsReadyInterstitialAd())
         {
-            AdManager.current.interstitial.Show();           
+            AdManager.current.interstitial.Show();
         }
         else if (!AdManager.current.IsReadyInterstitialAd())
         {
@@ -267,7 +272,7 @@ public class Buttons : MonoSingleton<Buttons>
         if (AdManager.current.IsReadyInterstitialAd())
         {
             AdManager.current.interstitial.Show();
-            
+
         }
         else
         {
@@ -281,7 +286,7 @@ public class Buttons : MonoSingleton<Buttons>
         if (AdManager.current.IsReadyInterstitialAd())
         {
             AdManager.current.interstitial.Show();
-            
+
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -318,7 +323,7 @@ public class Buttons : MonoSingleton<Buttons>
         {
             SceneManager.LoadScene(0);
         }
-   
+
     }
 
     /*private void RewardOpen()

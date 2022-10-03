@@ -18,12 +18,12 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     public int level;
-    public int money,addedMoney;
+    public int money, addedMoney;
     public int vibration;
     public int sound;
 
     private void Start()
-    {        
+    {
         startGame = true;
         GameObject.FindObjectOfType<AdManager>().InitializeAds();
         if (PlayerPrefs.HasKey("money"))
@@ -106,6 +106,24 @@ public class GameManager : MonoSingleton<GameManager>
         {
             PlayerPrefs.SetFloat("WalkCountdownWay", WarriorStatManager.Instance.WalkCountdownWay);
         }
+
+        if (PlayerPrefs.HasKey("countMoney"))
+        {
+            MarketManager.Instance.WarriorCountPrice = PlayerPrefs.GetInt("countMoney");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("countMoney", MarketManager.Instance.WarriorCountPrice);
+        }
+
+        if (PlayerPrefs.HasKey("speedMoney"))
+        {
+            MarketManager.Instance.warriorSoeedPrice = PlayerPrefs.GetInt("speedMoney");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("speedMoney", MarketManager.Instance.warriorSoeedPrice);
+        }
     }
 
     public void SetLevel()
@@ -151,5 +169,15 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetWarriorWalkSpeed()
     {
         PlayerPrefs.SetFloat("WalkCountdownWay", WarriorStatManager.Instance.WalkCountdownWay);
+    }
+
+    public void SetWarriorCountMoney()
+    {
+        PlayerPrefs.SetFloat("speedMoney", MarketManager.Instance.WarriorCountPrice);
+    }
+
+    public void SetWarriorSpeedMoney()
+    {
+        PlayerPrefs.SetFloat("speedMoney", MarketManager.Instance.warriorSoeedPrice);
     }
 }
