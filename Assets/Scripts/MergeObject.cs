@@ -65,6 +65,7 @@ public class MergeObject : MonoBehaviour
             GameManager.Instance.money += GameManager.Instance.addedMoney;
             GameManager.Instance.SetMoney();
             Buttons.Instance.moneyText.text = GameManager.Instance.money.ToString();
+            
         }
         else if (other.CompareTag("Multiplication"))
         {

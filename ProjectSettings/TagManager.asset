@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Missile
-  - Shot
-  - Rival
-  - Warrior
-  - Castle
-  - Multiplication
+  tags: []
   layers:
   - Default
   - TransparentFX

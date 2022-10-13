@@ -3234,6 +3234,8 @@ MonoBehaviour:
     poolSize: 500
   - objectPrefab: {fileID: 1624714524768532, guid: 1177f3a6be170da41ac893f93fb7fc1c, type: 3}
     poolSize: 500
+  - objectPrefab: {fileID: 1384676760634654, guid: 289ba3245c9c98c42aeb93d5f45a2248, type: 3}
+    poolSize: 500
 --- !u!114 &1304064732
 MonoBehaviour:
   m_ObjectHideFlags: 0

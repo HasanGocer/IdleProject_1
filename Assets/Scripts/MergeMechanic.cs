@@ -73,6 +73,10 @@ public class MergeMechanic : MonoSingleton<MergeMechanic>
         return obj;
     }
 
+    void LastParticleObjectOnCastle()
+    {
+        
+    }
     IEnumerator ParticalFalse(GameObject partical)
     {
         yield return new WaitForSeconds(_ParticalOnTime);
