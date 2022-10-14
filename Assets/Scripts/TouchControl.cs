@@ -13,6 +13,7 @@ public class TouchControl : MonoBehaviour
     private void OnMouseDown()
     {
         touchobject = true;
+        this.GetComponent<MergeObject>().inDrag = true;
     }
     private void Start()
     {
@@ -45,6 +46,7 @@ public class TouchControl : MonoBehaviour
                         transform.position = pos;
                     }
                     touchobject = false;
+                    this.GetComponent<MergeObject>().inDrag = false;
                     //StartCoroutine(InMerge());
 
                     break;

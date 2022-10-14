@@ -7,7 +7,9 @@ public class MergeObject : MonoBehaviour
 {
     //nesneye deðen þeye göre bir merge mechanic çalýþtýtýr
     [SerializeField] private int OPWarriorCount;
+    [SerializeField] private int _OPTouchCastlePartical = 8;
     [SerializeField] private int intMulti;//ileride multinin içinden stat yapýlýp çekilcek
+    public bool inDrag;
     //[SerializeField] private TextMeshPro textMulti;
 
 
@@ -57,15 +59,16 @@ public class MergeObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Castle"))
+        if (other.CompareTag("Castle") && !inDrag)
         {
             ObjectPool.Instance.AddObject(OPCount, this.gameObject);
+            StartCoroutine(CastleTouch(other.gameObject));
             CastleStat.Instance.health -= GetComponent<WarriorStat>().healthCount;
             CastleHealthBar.Instance.CastleHealthUpdate();
             GameManager.Instance.money += GameManager.Instance.addedMoney;
             GameManager.Instance.SetMoney();
             Buttons.Instance.moneyText.text = GameManager.Instance.money.ToString();
-            
+
         }
         else if (other.CompareTag("Multiplication"))
         {
@@ -77,5 +80,13 @@ public class MergeObject : MonoBehaviour
                 obj.transform.LookAt(WarriorStatManager.Instance.CastlePos.transform.position);
             }
         }
+    }
+
+    IEnumerator CastleTouch(GameObject other)
+    {
+        GameObject obj = ObjectPool.Instance.GetPooledObject(_OPTouchCastlePartical);
+        obj.transform.position = other.transform.position;
+        yield return new WaitForSeconds(3f);
+        ObjectPool.Instance.AddObject(_OPTouchCastlePartical, obj);
     }
 }
